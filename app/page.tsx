@@ -2,18 +2,22 @@
 
 import Loader from "@/component/loader";
 import SkillsGraph from "@/component/skills";
-import { log } from "console";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-
 type PageEnum = "Home" | "About" | "Projects" | "Contact";
 
 const colorMapping = {
-  Home: { nav: "#795757", logo: "#ffffff", links: "#B6CEB4" },
-  About: { nav: "#FBF3D5", logo: "#D6A99D", links: "#B6CEB4" },
+  Home: { nav: "#795757", logo: "#000000", links: "#000000" },
+  About: { nav: "#FBF3D5", logo: "#ffffff", links: "#ffffff" },
   Projects: { nav: "#795757", logo: "#ffffff", links: "#B6CEB4" },
   Contact: { nav: "#B6CEB4", logo: "#ffffff", links: "#B6CEB4" },
 };
+
+const projects = [
+  {
+    Title: "Hedged Core",
+  },
+];
 
 export default function Home() {
   const [loading, setLoader] = useState(true);
@@ -128,20 +132,20 @@ export default function Home() {
       <div className="cursor-dot"></div>
       {/* navbar */}
       <div
-        className={`fixed top-2 left-1 right-1 rounded-2xl  bg-opacity-90 flex items-center shadow-md z-50 font-serif  px-6 py-3`}
+        className={`fixed top-2 left-1 right-1 rounded-2xl flex items-center justify-between shadow-md z-50 font-serif px-6 py-3 backdrop-blur-md bg-transparent`}
         style={{
-          backgroundColor: colorMapping[pageName]["nav"],
+          backgroundColor: "rgba(253,249,234, 0.5)",
           padding: "1rem",
         }}
       >
         <div
-          className="text-3xl flex-none font-bold  tracking-wider"
+          className="text-3xl flex-none font-bold  tracking-wider "
           style={{ color: colorMapping[pageName]["logo"] }}
         >
           PORTFOLIO
         </div>
         <div
-          className="flex grow justify-around  text-lg font-medium"
+          className="flex text-lg font-medium gap-4 font-normal"
           style={{ color: colorMapping[pageName]["logo"] }}
         >
           <a href="#Home" className=" transition-colors duration-300 font-bold">
@@ -229,7 +233,7 @@ export default function Home() {
           >
             <ul className="space-y-8">
               <li className="flex items-start gap-4">
-                <span className="text-3xl text-[#A7AAE1] mt-1">☸</span>
+                <span className="text-4xl text-[#A7AAE1] mt-1">☸</span>
                 <span>
                   {`Hey, I'm `}
                   <span className="font-semibold text-[#FBF3D5]">
@@ -240,21 +244,21 @@ export default function Home() {
                 </span>
               </li>
               <li className="flex items-start gap-4">
-                <span className="text-3xl text-[#A7AAE1] mt-1">☸</span>
+                <span className="text-4xl text-[#A7AAE1] mt-1">☸</span>
                 <span>
                   Solving bugs feels like solving puzzles — frustrating at
                   first, but satisfying when everything clicks.
                 </span>
               </li>
               <li className="flex items-start gap-4">
-                <span className="text-3xl text-[#A7AAE1] mt-1">☸</span>
+                <span className="text-4xl text-[#A7AAE1] mt-1">☸</span>
                 <span>
                   I started coding because I liked building things that actually
                   do something, and that curiosity hasn’t slowed down.
                 </span>
               </li>
               <li className="flex items-start gap-4">
-                <span className="text-3xl text-[#A7AAE1] mt-1">☸</span>
+                <span className="text-4xl text-[#A7AAE1] mt-1">☸</span>
                 <span>
                   I love experimenting with new frameworks, writing code that
                   feels smooth to read, and understanding what’s happening under
@@ -271,12 +275,7 @@ export default function Home() {
       </div>
 
       {/* projects Section */}
-      <div
-        id="Projects"
-        className="h-screen w-full bg-[#FBF3D5] flex justify-center items-center"
-      >
-        <div></div>
-      </div>
+      <div className="grid grid-cols-3"></div>
     </div>
   );
 }
