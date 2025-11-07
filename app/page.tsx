@@ -9,13 +9,31 @@ type PageEnum = "Home" | "About" | "Projects" | "Contact";
 const colorMapping = {
   Home: { nav: "#795757", logo: "#000000", links: "#000000" },
   About: { nav: "#FBF3D5", logo: "#ffffff", links: "#ffffff" },
-  Projects: { nav: "#795757", logo: "#ffffff", links: "#B6CEB4" },
+  Projects: { nav: "#795757", logo: "#A7AAE1", links: "#A7AAE1" },
   Contact: { nav: "#B6CEB4", logo: "#ffffff", links: "#B6CEB4" },
 };
 
 const projects = [
   {
     Title: "Hedged Core",
+    description:
+      " Contributed to a stock recommendation platform delivering real-time trade suggestions. Independently developed the WhatsApp integration module and implemented advanced OHLC and line chart visualizations for comprehensive market analytics.",
+    imageUrl: "/Hedged.png",
+    redirectUrl: "https://app.hedged.in",
+  },
+  {
+    Title: "Hedged Desk",
+    description:
+      " Contributed to a stock recommendation platform delivering real-time trade suggestions. Independently developed the WhatsApp integration module and implemented advanced OHLC and line chart visualizations for comprehensive market analytics.",
+    imageUrl: "/HedgedDesk.png",
+    redirectUrl: "",
+  },
+  {
+    Title: "Greein",
+    description:
+      " Contributed to a stock recommendation platform delivering real-time trade suggestions. Independently developed the WhatsApp integration module and implemented advanced OHLC and line chart visualizations for comprehensive market analytics.",
+    imageUrl: "/Greein.png",
+    redirectUrl: "https://greein.com/",
   },
 ];
 
@@ -275,7 +293,46 @@ export default function Home() {
       </div>
 
       {/* projects Section */}
-      <div className="grid grid-cols-3"></div>
+      {/* Projects Section */}
+      <div id="Projects" className="min-h-screen bg-[#FBF3D5] py-16 px-10">
+        <h1 className="text-5xl font-bold text-center text-[#A7AAE1] tracking-wide">
+          Projects
+        </h1>
+
+        <div
+          style={{
+            alignItems: "center",
+            justifyContent: "center",
+            display: "flex",
+            gap: "5rem",
+            height: "100vh",
+            padding: "10px",
+          }}
+        >
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              className="max-w-md w-full bg-white border border-[#E5E7EB] rounded-3xl shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition duration-300 ease-in-out"
+            >
+              <Image
+                src={project.imageUrl}
+                alt={project.Title + " Home Screen Image"}
+                width={600}
+                height={400}
+                className="w-full h-64 object-cover rounded-t-3xl"
+              />
+              <div className="p-6">
+                <h2 className="text-2xl font-semibold text-[#9CAFAA] mb-2">
+                  {project.Title}
+                </h2>
+                <p className="text-gray-700 text-base leading-relaxed">
+                  {project.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
