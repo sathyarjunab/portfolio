@@ -147,24 +147,24 @@ export default function Home() {
   return false ? (
     <Loader percentage={percentage} />
   ) : (
-    <div className=" bg-[#FBF3D5]  font-serif">
+    <div className=" bg-[#FBF3D5]  font-serif relative">
       <div className="cursor-dot"></div>
       {/* navbar */}
       <div
-        className={`fixed top-2 left-1 right-1 rounded-2xl flex items-center justify-between shadow-md z-50 font-serif px-6 py-3 backdrop-blur-md bg-transparent`}
+        className={`fixed w-screen top-2 rounded-2xl flex items-center justify-between shadow-md z-50 font-serif px-6 py-3 backdrop-blur-md bg-transparent`}
         style={{
           backgroundColor: "rgba(253,249,234, 0.5)",
           padding: "1rem",
         }}
       >
         <div
-          className="text-3xl flex-none font-bold  tracking-wider "
+          className="text-xl md:text-3xl flex-none font-bold  tracking-wider "
           style={{ color: colorMapping[pageName]["logo"] }}
         >
           PORTFOLIO
         </div>
         <div
-          className="flex text-lg gap-4 font-normal"
+          className="flex text-sm md:text-lg gap-4 font-normal"
           style={{ color: colorMapping[pageName]["logo"] }}
         >
           <a href="#Home" className=" transition-colors duration-300 font-bold">
@@ -192,12 +192,15 @@ export default function Home() {
       </div>
 
       {/* home section */}
-
-      <div id="Home" className="w-screen h-screen flex">
-        <div className="flex items-center justify-start w-1/2">
-          <div style={{ marginLeft: "10%" }}>
-            <h1 className="flex items-center space-x-2 gap-0.5">
-              <span className="text-[#D6A99D] text-5xl font-bold">Hi</span>
+      <div
+        id="Home"
+        className="w-screen h-screen flex flex-col-reverse gap-5 md:flex-row"
+        style={{ padding: "1rem" }}
+      >
+        <div className="flex items-center justify-start md:w-1/2">
+          <div>
+            <p className="flex items-center space-x-2 gap-0.5 text-[#D6A99D]  text-xl md:text-5xl">
+              <span className="font-bold">Hi</span>
               <Image
                 src="/WavingHand.gif"
                 alt="Waving hand"
@@ -205,15 +208,15 @@ export default function Home() {
                 width={35}
                 height={35}
               />
-              <span className="text-[#9CAFAA] text-5xl">I’m</span>
-            </h1>
+              <span>I’m</span>
+            </p>
             <div
-              className="text-[#A7AAE1] text-7xl name "
+              className="text-[#A7AAE1] text-3xl md:text-7xl"
               style={{ marginBottom: "0.5rem" }}
             >
               {name}
             </div>
-            <div className="text-[#9CAFAA] text-xl text-justify">
+            <div className="text-[#9CAFAA] text-sm md:text-xl text-justify">
               Highly driven and relentless in delivering results, I approach
               every project with full commitment and intensity. I thrive under
               pressure, consistently pushing beyond expectations to complete
@@ -223,7 +226,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="flex items-center justify-center w-1/2">
+        <div className="flex items-center justify-center  md:w-1/2 mt-24 md:mt-0">
           <div className="relative">
             <div className="relative rounded-full border-[4px] border-[#CBB89D] hero-block overflow-hidden ">
               <Image
