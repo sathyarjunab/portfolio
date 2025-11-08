@@ -2,6 +2,7 @@
 
 import Loader from "@/component/loader";
 import SkillsGraph from "@/component/skills";
+import { Button } from "@amcharts/amcharts5";
 import { GithubIcon, LinkedinIcon } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -41,40 +42,13 @@ const projects = [
   },
 ];
 
-const items = [
-  {
-    image: "/Hedged.png",
-    link: "",
-    title: "Hedged Core",
-    description:
-      "Contributed to a stock recommendation platform delivering real-time trade suggestions. Independently developed the WhatsApp integration module and implemented advanced OHLC and line chart visualizations for comprehensive market analytics.",
-  },
-  {
-    image: "https://picsum.photos/400/400?grayscale",
-    link: "https://google.com/",
-    title: "Item 2",
-    description: "This is pretty cool, right?",
-  },
-  {
-    image: "https://picsum.photos/500/500?grayscale",
-    link: "https://google.com/",
-    title: "Item 3",
-    description: "This is pretty cool, right?",
-  },
-  {
-    image: "https://picsum.photos/600/600?grayscale",
-    link: "https://google.com/",
-    title: "Item 4",
-    description: "This is pretty cool, right?",
-  },
-];
-
 export default function Home() {
   const [loading, setLoader] = useState(true);
   const [percentage, setPercentage] = useState(0);
   const [name, setName] = useState("");
   const heroName = "SATHYARJUN A B";
   const [pageName, setPageName] = useState<PageEnum>("Home");
+  const [mainBg, setMainBg] = useState("#FBF3D1");
 
   // Loader
   useEffect(() => {
@@ -178,10 +152,13 @@ export default function Home() {
   return loading ? (
     <Loader percentage={percentage} />
   ) : (
-    <div className="font-serif relative min-h-full ">
+    <div
+      className="font-serif relative min-h-full"
+      style={{ backgroundColor: mainBg }}
+    >
       <div className="cursor-dot"></div>
       {/* navbar */}
-      <div className="fixed top-2 left-1 right-1  z-50 flex items-center justify-between rounded-2xl shadow-md font-serif backdrop-blur-md bg-[rgba(255,255,255,0.5)] px-5">
+      <div className="fixed top-2 left-1 right-1  z-50 flex items-center justify-between rounded-2xl shadow-md press-start-2p-regular backdrop-blur-md bg-[rgba(255,255,255,0.5)] px-5">
         <div className={`text-xl flex-none font-bold `}>
           <Image
             alt="logo"
@@ -193,28 +170,19 @@ export default function Home() {
           />
         </div>
         <div
-          className="flex text-xs gap-4 ml-2 font-normal text-center md:text-2xl"
+          className="flex text-xs gap-4 ml-2 font-normal text-center md:text-xl"
           style={{ color: colorMapping[pageName]["logo"] }}
         >
-          <a href="#Home" className=" transition-colors duration-300 font-bold">
+          <a href="#Home" className=" transition-colors duration-300 ">
             Home
           </a>
-          <a
-            href="#About"
-            className=" transition-colors duration-300 font-bold"
-          >
-            About Me
+          <a href="#About" className=" transition-colors duration-300 ">
+            About
           </a>
-          <a
-            href="#Projects"
-            className=" transition-colors duration-300 font-bold"
-          >
+          <a href="#Projects" className=" transition-colors duration-300 ">
             Projects
           </a>
-          <a
-            href="#Contact"
-            className=" transition-colors duration-300 font-bold"
-          >
+          <a href="#Contact" className=" transition-colors duration-300 ">
             Contact
           </a>
         </div>
@@ -222,9 +190,9 @@ export default function Home() {
       {/* home section */}
       <div
         id="Home"
-        className="w-full flex flex-col-reverse px-2 py-8 md:p-8 md:flex-row md:pt-45 md:justify-around"
+        className="w-full flex flex-col-reverse px-5 py-12 gap-10 md:p-8 md:flex-row md:pt-45 md:justify-around "
       >
-        <div className="flex items-center justify-start md:w-1/2 ">
+        <div className="henny-penny-regular flex items-center justify-start md:w-1/2 ">
           <div>
             <p className="flex items-center space-x-2 gap-0.5 text-[#D6A99D]  text-xl md:text-5xl">
               <span className="font-bold">Hi</span>
@@ -243,7 +211,7 @@ export default function Home() {
             >
               {name}
             </div>
-            <div className="text-[#9CAFAA] text-sm md:text-xl text-justify">
+            <div className="text-[#9CAFAA] text-xs md:text-xl text-left press-start-2p-regular">
               Highly driven and relentless in delivering results, I approach
               every project with full commitment and intensity. I thrive under
               pressure, consistently pushing beyond expectations to complete
@@ -254,14 +222,39 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="rounded-full border-4 hero-block overflow-hidden mt-6 self-center justify-self-center justify-self-between">
+        <div className="mt-6 relative">
+          <div
+            className="henny-penny-regular text-xl "
+            style={{
+              color: mainBg === "#000000" ? "#ffffff" : "#A7AAE1",
+            }}
+          >
+            Click Me
+          </div>
           <Image
-            src="/hero.png"
-            alt="Hero"
-            width={380}
-            height={380}
-            className="object-cover"
-          />
+            src="/Arrow down.gif"
+            alt="Arrow"
+            width={25}
+            height={25}
+            className="absolute"
+          ></Image>
+          <div
+            className="rounded-full border-4 hero-block overflow-hidden self-center justify-self-center justify-self-between"
+            style={{
+              backgroundColor: mainBg === "#000000" ? "#FBF3D1" : "#000000",
+            }}
+            onClick={() => {
+              setMainBg((prev) => (prev === "#000000" ? "#FBF3D1" : "#000000"));
+            }}
+          >
+            <Image
+              src="/hero.png"
+              alt="Hero"
+              width={380}
+              height={380}
+              className="object-cover h-55 w-55 md:h-[380px] md:w-[380px]"
+            />
+          </div>
         </div>
       </div>
       {/* about section */}
@@ -352,7 +345,10 @@ export default function Home() {
       {/* Contact Section */}
       <div
         id="Contact"
-        className="w-full text-white flex flex-col gap-2 items-center justify-center pirata-one-regular"
+        className="w-full flex flex-col gap-2 items-center justify-center pirata-one-regular"
+        style={{
+          color: mainBg === "#000000" ? "#ffffff" : "#A7AAE1",
+        }}
       >
         <div className="flex gap-2.5 items-center w-full text-center justify-center">
           <h1 className="text-xl font-bold ">Contact Me</h1>

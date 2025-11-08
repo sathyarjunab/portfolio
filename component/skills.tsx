@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import React, { Children, useLayoutEffect } from "react";
 import * as am5 from "@amcharts/amcharts5";
 import * as am5hierarchy from "@amcharts/amcharts5/hierarchy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
@@ -79,23 +79,29 @@ const SkillsGraph = () => {
             name: "Backend",
             children: [
               { name: "Node.js" },
-              { name: "TypeScript" },
-              { name: "JavaScript" },
+              { name: "Express" },
               { name: "Swagger" },
+              { name: "MongoDB" },
+              { name: "postgreSQL" },
+              { name: "redis" },
+              { name: "docker" },
             ],
           },
           {
-            name: "Version Control",
-            children: [{ name: "Git" }, { name: "GitLab" }],
-          },
-          {
-            name: "AWS",
-            children: [{ name: "EC2" }, { name: "S3" }],
+            name: "DevOps",
+            children: [
+              { name: "Git" },
+              { name: "GitHub" },
+              { name: "EC2" },
+              { name: "S3" },
+              { name: "CI/CD" },
+            ],
           },
           {
             name: "Languages",
             children: [
               { name: "JavaScript" },
+              { name: "TypeScript" },
               { name: "Python" },
               { name: "C++" },
               { name: "PHP" },

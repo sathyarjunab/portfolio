@@ -1,6 +1,5 @@
 /* pirate one font */
-@import url("https://fonts.googleapis.com/css2?family=Pirata+One&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Henny+Penny&family=Pirata+One&family=Press+Start+2P&display=swap");
 @import "tailwindcss";
 @plugin "tailwindcss-animate";
 
@@ -73,6 +72,17 @@ body::-webkit-scrollbar {
 
 .pirata-one-regular {
   font-family: "Pirata One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.henny-penny-regular {
+  font-family: "Henny Penny", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+.press-start-2p-regular {
+  font-family: "Press Start 2P", system-ui;
   font-weight: 400;
   font-style: normal;
 }
