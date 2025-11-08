@@ -175,7 +175,7 @@ export default function Home() {
     }
   }, [loading]);
 
-  return false ? (
+  return loading ? (
     <Loader percentage={percentage} />
   ) : (
     <div className="font-serif relative min-h-full ">
