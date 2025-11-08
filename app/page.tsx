@@ -2,23 +2,26 @@
 
 import Loader from "@/component/loader";
 import SkillsGraph from "@/component/skills";
+import { GithubIcon, LinkedinIcon } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-type PageEnum = "Home" | "About" | "Projects" | "Contact";
-import { Github, Linkedin } from "lucide-react";
 
+type PageEnum = "Home" | "About" | "Projects" | "Contact";
+
+//nav bar colors
 const colorMapping = {
-  Home: { nav: "#795757", logo: "#A7AAE1", links: "#A7AAE1" },
-  About: { nav: "#FBF3D5", logo: "#A7AAE1", links: "#A7AAE1" },
-  Projects: { nav: "#795757", logo: "#A7AAE1", links: "#A7AAE1" },
-  Contact: { nav: "#B6CEB4", logo: "#ffffff", links: "#B6CEB4" },
+  Home: { nav: "#ffffff", logo: "#A7AAE1", links: "#A7AAE1" },
+  About: { nav: "#ffffff", logo: "#A7AAE1", links: "#A7AAE1" },
+  Projects: { nav: "#ffffff", logo: "#A7AAE1", links: "#A7AAE1" },
+  Contact: { nav: "#ffffff", logo: "#A7AAE1", links: "#A7AAE1" },
 };
 
+//projects
 const projects = [
   {
     Title: "Hedged Core",
     description:
-      " Contributed to a stock recommendation platform delivering real-time trade suggestions. Independently developed the WhatsApp integration module and implemented advanced OHLC and line chart visualizations for comprehensive market analytics.",
+      "Contributed to a stock recommendation platform delivering real-time trade suggestions. Independently developed the WhatsApp integration module and implemented advanced OHLC and line chart visualizations for comprehensive market analytics.",
     imageUrl: "/Hedged.png",
     redirectUrl: "https://app.hedged.in",
   },
@@ -35,6 +38,34 @@ const projects = [
       " Contributed to a stock recommendation platform delivering real-time trade suggestions. Independently developed the WhatsApp integration module and implemented advanced OHLC and line chart visualizations for comprehensive market analytics.",
     imageUrl: "/Greein.png",
     redirectUrl: "https://greein.com/",
+  },
+];
+
+const items = [
+  {
+    image: "/Hedged.png",
+    link: "",
+    title: "Hedged Core",
+    description:
+      "Contributed to a stock recommendation platform delivering real-time trade suggestions. Independently developed the WhatsApp integration module and implemented advanced OHLC and line chart visualizations for comprehensive market analytics.",
+  },
+  {
+    image: "https://picsum.photos/400/400?grayscale",
+    link: "https://google.com/",
+    title: "Item 2",
+    description: "This is pretty cool, right?",
+  },
+  {
+    image: "https://picsum.photos/500/500?grayscale",
+    link: "https://google.com/",
+    title: "Item 3",
+    description: "This is pretty cool, right?",
+  },
+  {
+    image: "https://picsum.photos/600/600?grayscale",
+    link: "https://google.com/",
+    title: "Item 4",
+    description: "This is pretty cool, right?",
   },
 ];
 
@@ -147,24 +178,22 @@ export default function Home() {
   return false ? (
     <Loader percentage={percentage} />
   ) : (
-    <div className=" bg-[#FBF3D5]  font-serif relative">
+    <div className="font-serif relative min-h-full ">
       <div className="cursor-dot"></div>
       {/* navbar */}
-      <div
-        className={`fixed w-screen top-2 rounded-2xl flex items-center justify-between shadow-md z-50 font-serif px-6 py-3 backdrop-blur-md bg-transparent`}
-        style={{
-          backgroundColor: "rgba(253,249,234, 0.5)",
-          padding: "1rem",
-        }}
-      >
-        <div
-          className="text-xl md:text-3xl flex-none font-bold  tracking-wider "
-          style={{ color: colorMapping[pageName]["logo"] }}
-        >
-          PORTFOLIO
+      <div className="fixed top-2 left-1 right-1  z-50 flex items-center justify-between rounded-2xl shadow-md font-serif backdrop-blur-md bg-[rgba(255,255,255,0.5)] px-5">
+        <div className={`text-xl flex-none font-bold `}>
+          <Image
+            alt="logo"
+            src={"/sup-logo.svg"}
+            width={30}
+            height={30}
+            color={`${colorMapping[pageName]["logo"]}`}
+            className="w-10 h-10 md:w-13 md:h-13 lg:w-17 lg:h-17 object-contain "
+          />
         </div>
         <div
-          className="flex text-sm md:text-lg gap-4 font-normal"
+          className="flex text-xs gap-4 ml-2 font-normal text-center md:text-2xl"
           style={{ color: colorMapping[pageName]["logo"] }}
         >
           <a href="#Home" className=" transition-colors duration-300 font-bold">
@@ -190,14 +219,12 @@ export default function Home() {
           </a>
         </div>
       </div>
-
       {/* home section */}
       <div
         id="Home"
-        className="w-screen h-screen flex flex-col-reverse gap-5 md:flex-row"
-        style={{ padding: "1rem" }}
+        className="w-full flex flex-col-reverse px-2 py-8 md:p-8 md:flex-row md:pt-45 md:justify-around"
       >
-        <div className="flex items-center justify-start md:w-1/2">
+        <div className="flex items-center justify-start md:w-1/2 ">
           <div>
             <p className="flex items-center space-x-2 gap-0.5 text-[#D6A99D]  text-xl md:text-5xl">
               <span className="font-bold">Hi</span>
@@ -226,83 +253,81 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="flex items-center justify-center  md:w-1/2 mt-24 md:mt-0">
-          <div className="relative">
-            <div className="relative rounded-full border-[4px] border-[#CBB89D] hero-block overflow-hidden ">
-              <Image
-                src="/hero.png"
-                alt="Hero"
-                width={380}
-                height={380}
-                className="object-cover"
-              />
-            </div>
-          </div>
+
+        <div className="rounded-full border-4 hero-block overflow-hidden mt-6 self-center justify-self-center justify-self-between">
+          <Image
+            src="/hero.png"
+            alt="Hero"
+            width={380}
+            height={380}
+            className="object-cover"
+          />
         </div>
       </div>
-
       {/* about section */}
       <div
-        className="h-screen w-full bg-[#FBF3D5] flex"
+        className="w-full flex flex-col py-15 md:flex-row  pirata-one-regular justify-center md:items-center md:py-10"
         id="About"
         data-cursor-color="#ffffff"
       >
-        <div className="flex h-full w-full" style={{ marginTop: "5%" }}>
-          <div
-            className="w-1/2 text-xl text-[#A7AAE1] font-light leading-relaxed tracking-wide"
-            style={{ padding: "10% 5%" }}
-            data-cursor-color="#ffffff"
-          >
-            <ul className="space-y-8">
-              <li className="flex items-start gap-4">
-                <span className="text-4xl text-[#9CAFAA] mt-1">☸</span>
-                <span>
-                  {`Hey, I'm `}
-                  <span className="font-semibold text-[#F4DF8F]">
-                    Sathyarjun
-                  </span>{" "}
-                  — I’m a developer who genuinely enjoys turning ideas into
-                  working code.
-                </span>
-              </li>
-              <li className="flex items-start gap-4">
-                <span className="text-4xl text-[#9CAFAA] mt-1">☸</span>
-                <span>
-                  Solving bugs feels like solving puzzles — frustrating at
-                  first, but satisfying when everything clicks.
-                </span>
-              </li>
-              <li className="flex items-start gap-4">
-                <span className="text-4xl text-[#9CAFAA] mt-1">☸</span>
-                <span>
-                  I started coding because I liked building things that actually
-                  do something, and that curiosity hasn’t slowed down.
-                </span>
-              </li>
-              <li className="flex items-start gap-4">
-                <span className="text-4xl text-[#9CAFAA] mt-1">☸</span>
-                <span>
-                  I love experimenting with new frameworks, writing code that
-                  feels smooth to read, and understanding what’s happening under
-                  the hood.
-                </span>
-              </li>
-            </ul>
-          </div>
+        <div
+          className="text-justify text-xs text-[#A7AAE1] font-light leading-relaxed tracking-wide px-2 md:py-[10%] md:px-[5%] md:w-1/2 md:text-2xl "
+          data-cursor-color="#ffffff"
+        >
+          <ul className="space-y-8">
+            <li className="flex items-center gap-4">
+              <span className="text-4xl text-[#9CAFAA] mt-1">☸</span>
+              <span>
+                {`Hey, I'm `}
+                <span className="font-semibold text-[#F4DF8F]">
+                  Sathyarjun
+                </span>{" "}
+                — I’m a developer who genuinely enjoys turning ideas into
+                working code.
+              </span>
+            </li>
+            <li className="flex items-center gap-4">
+              <span className="text-4xl text-[#9CAFAA] mt-1">☸</span>
+              <span>
+                Solving bugs feels like solving puzzles — frustrating at first,
+                but satisfying when everything clicks.
+              </span>
+            </li>
+            <li className="flex items-start gap-4">
+              <span className="text-4xl text-[#9CAFAA] mt-1">☸</span>
+              <span>
+                I started coding because I liked building things that actually
+                do something, and that curiosity hasn’t slowed down.
+              </span>
+            </li>
+            <li className="flex items-start gap-4">
+              <span className="text-4xl text-[#9CAFAA] mt-1">☸</span>
+              <span>
+                I love experimenting with new frameworks, writing code that
+                feels smooth to read, and understanding what’s happening under
+                the hood.
+              </span>
+            </li>
+          </ul>
+        </div>
 
-          <div className="w-1/2" data-cursor-color="#ffffff">
-            <SkillsGraph />
-          </div>
+        <div
+          className="h-screen flex justify-center items-center w-full md:w-1/2 md:h-120"
+          data-cursor-color="#ffffff"
+        >
+          <SkillsGraph />
         </div>
       </div>
-
       {/* Projects Section */}
-      <div id="Projects" className="min-h-screen bg-[#FBF3D5] py-16 px-10">
-        <div className="flex items-center justify-center gap-4 h-screen min-w-5xl mx-auto">
+      <div
+        id="Projects"
+        className="py-15 px-2 md:px-10 md:h-screen md:flex md:justify-center md:items-center"
+      >
+        <div className="flex flex-col items-center justify-center gap-7 mx-auto text-[#A7AAE1] pirata-one-regular md:flex-row md:text-xl">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="max-w-md w-full bg-slate-100 border-[#E5E7EB] rounded-3xl shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition duration-300 ease-in-out"
+              className="project-block max-w-md w-full bg-slate-300 border-[#E5E7EB] rounded-3xl shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition duration-300 ease-in-out"
             >
               <Image
                 src={project.imageUrl}
@@ -318,32 +343,28 @@ export default function Home() {
                 >
                   {project.Title}
                 </p>
-                <p className="text-gray-500  m-5">{project.description}</p>
+                <p className="m-5">{project.description}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
-
       {/* Contact Section */}
       <div
         id="Contact"
-        className="w-full bg-[#B6CEB4] text-white flex flex-col gap-2 items-center justify-center"
-        style={{ padding: "50px" }}
+        className="w-full text-white flex flex-col gap-2 items-center justify-center pirata-one-regular"
       >
-        <div className="flex gap-2.5 items-center justify-center">
-          <h1 className="text-4xl font-bold mb-4">Contact Me</h1>
-          <p className="text-lg mb-2 opacity-90">
-            Let’s build something together.
-          </p>
+        <div className="flex gap-2.5 items-center w-full text-center justify-center">
+          <h1 className="text-xl font-bold ">Contact Me</h1>
+          <p className="text-xl opacity-90">Let’s build something together.</p>
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-4 flex-col md:flex-row">
           <p className="text-lg font-medium">📧 sathyarjunab@gmail.com</p>
           <p className="text-lg font-medium">📞 +91 91136 19637</p>
 
-          <div className="mt-6 flex gap-6">
+          <div className="flex gap-6">
             <div className="flex justify-center items-center gap-1">
-              <Linkedin />
+              <LinkedinIcon />
               <a
                 href="https://www.linkedin.com/in/sathyarjun-a-b-7767ba238/"
                 target="_blank"
@@ -354,7 +375,7 @@ export default function Home() {
               </a>
             </div>
             <div className="flex justify-center items-center gap-1">
-              <Github />
+              <GithubIcon />
               <a
                 href="https://github.com/sathyarjunab"
                 target="_blank"

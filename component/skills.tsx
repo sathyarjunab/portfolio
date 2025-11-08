@@ -112,21 +112,13 @@ const SkillsGraph = () => {
     };
   }, []);
   return (
-    <div
-      style={{
-        width: "90%",
-        height: "90%",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
+    <>
       <div
         style={{
           width: "90%",
           height: "90%",
           borderRadius: "1.5rem",
-          boxShadow: "0 10px 25px #FBF3D5",
+          boxShadow: "0 1px 25px #FBF3D5",
           padding: "0.5rem",
           border: "1px solid rgba(255, 255, 255, 0.1)",
         }}
@@ -141,7 +133,7 @@ const SkillsGraph = () => {
           }}
         ></div>
       </div>
-    </div>
+    </>
   );
 };
 

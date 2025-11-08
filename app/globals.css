@@ -1,8 +1,8 @@
-@import "tailwindcss";
+/* pirate one font */
+@import url("https://fonts.googleapis.com/css2?family=Pirata+One&display=swap");
 
+@import "tailwindcss";
 @plugin "tailwindcss-animate";
-@import "tailwindcss/preflight";
-/* @import "tw-animate-css"; */
 
 @keyframes glow {
   from {
@@ -10,6 +10,14 @@
   }
   to {
     box-shadow: 0 0 60px 20px rgba(166, 124, 82, 0.5);
+  }
+}
+@keyframes glow-project {
+  from {
+    box-shadow: 0 0 10px 5px rgba(166, 124, 82, 0.3);
+  }
+  to {
+    box-shadow: 0 0 10px 5px rgba(166, 124, 82, 0.5);
   }
 }
 
@@ -43,6 +51,12 @@ body::-webkit-scrollbar {
   animation-duration: 0.8s;
 }
 
+.project-block {
+  animation: glow-project 3s ease-in-out infinite alternate;
+  animation-name: glow-project;
+  animation-duration: 0.8s;
+}
+
 .cursor-dot {
   position: fixed;
   top: 0;
@@ -55,4 +69,10 @@ body::-webkit-scrollbar {
   transform: translate(-50%, -50%);
   transition: transform 0.1s ease-out, background-color 0.3s ease;
   z-index: 9999;
+}
+
+.pirata-one-regular {
+  font-family: "Pirata One", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
