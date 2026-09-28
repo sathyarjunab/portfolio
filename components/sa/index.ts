@@ -17,6 +17,6 @@ export { default as Footer } from "./Footer";
 export { default as Loader } from "./Loader";
 export { default as Reveal } from "./Reveal";
 export type { Project, ProjectKind } from "./ProjectCard";
-export type { ExperienceItem } from "./ExperienceTimeline";
+export type { ExperienceItem, ExperienceProject } from "./ExperienceTimeline";
 export type { SkillGroup } from "./SkillGroups";
 export type { Social } from "./SocialLinks";

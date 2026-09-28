@@ -98,11 +98,16 @@ export const projects: Project[] = [
   },
 ];
 
+// One company; the products I've worked on there are listed under it.
 export const experience: ExperienceItem[] = [
-  { title: "Hedged Core", org: "Blackcurrant Labs", role: "Full-stack developer", period: "Jan 2025 – now", href: "https://app.hedged.in/", points: ["Real-time stock recommendation and trading analytics platform; reporting API cut from ~50s to ~5s."] },
-  { title: "Greein", org: "Blackcurrant Labs", role: "Full-stack developer", period: "Jan 2025 – now", href: "https://dev.greein.com/", points: ["Broker extension admin platform and WebSocket services streaming live market data."] },
-  { title: "Zhylar", org: "Blackcurrant Labs", role: "Full-stack developer", period: "Jan 2026 – Jul 2026", href: "https://app.zhylar.com/", points: ["Stripe billing, subscription provisioning and usage metering for a CRM."] },
-  { title: "Scale N Evolve", org: "Freelance", role: "Independent consultant", period: "May 2026", href: "https://scalenevolve.com/", points: ["Habit-tracking and budgeting SaaS with analytics dashboards."] },
+  {
+    title: "Blackcurrant Labs", role: "Full-stack developer", period: "Jan 2025 – now",
+    projects: [
+      { name: "Hedged Core", href: "https://app.hedged.in/", period: "Jan 2025 – now", tone: "lavender", summary: "Real-time stock recommendation and trading analytics platform; reporting API cut from ~50s to ~5s." },
+      { name: "Greein", href: "https://dev.greein.com/", period: "Jan 2025 – now", tone: "sage", summary: "Broker extension admin platform and WebSocket services streaming live market data." },
+      { name: "Zhylar", href: "https://app.zhylar.com/", period: "Jan 2026 – Jul 2026", tone: "sun", summary: "Stripe billing, subscription provisioning and usage metering for a CRM." },
+    ],
+  },
 ];
 
 export const skills: SkillGroup[] = [
